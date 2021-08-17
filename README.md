@@ -2,7 +2,7 @@
 
 ## Steps to compile code
 
-### Step 01
+### Step 01 (create basic cdk App)
 
 Create and navigate to new directory
 
@@ -33,6 +33,37 @@ Deploy App
 
 ```
 cdk deploy
+```
+
+### Step 02 (Create Hello Cdk)
+
+Install dependancies
+
+```
+npm install @aws-cdk/aws-lambda
+```
+
+add lambda hander code in "lambda/hello.ts"
+
+```
+exports.handler = async function (event: { path: any }) {
+  console.log("request:", JSON.stringify(event, undefined, 2));
+  return {
+    statusCode: 200,
+    headers: { "Content-Type": "text/plain" },
+    body: `Hello, CDK! You've hit ${event.path}\n`,
+  };
+};
+```
+
+add lambda function to the stack
+
+```
+const hello = new lambda.Function(this, "HelloHandler", {
+  runtime: lambda.Runtime.NODEJS_14_X,
+  code: lambda.Code.fromAsset("lambda"),
+  handler: "hello.handler",
+});
 ```
 
 ## Welcome to your CDK TypeScript project!
