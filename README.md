@@ -29,7 +29,7 @@ Synthesize the app
 cdk synth
 ```
 
-Deploy App
+Deploy App (after each step)
 
 ```
 cdk deploy
@@ -63,6 +63,22 @@ const hello = new lambda.Function(this, "HelloHandler", {
   runtime: lambda.Runtime.NODEJS_14_X,
   code: lambda.Code.fromAsset("lambda"),
   handler: "hello.handler",
+});
+```
+
+### Step 03 (Add API gateway)
+
+Install dependancies
+
+```
+npm install @aws-cdk/aws-apigateway
+```
+
+Update lib/ hitcounter-api-stack.ts
+
+```
+new apigw.LambdaRestApi(this, "Endpoint", {
+  handler: hello,
 });
 ```
 
