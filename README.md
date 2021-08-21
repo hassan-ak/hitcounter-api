@@ -20,6 +20,16 @@ Expand deatils in execution result to view the results of the test. Result of th
 
 ![AWS Lambda function Test results](./snaps/testResult.PNG)
 
+### Step 03 (Add API Gateway)
+
+Adding an API Gateway in front of the hello lambda function will expose a public HTTPs endpoint which can be accessed by everyone. This means any request to the URL will be proxied to our lambda function and response will be returned back to user. To do so first install API gateway construct using “npm install @aws-cdk/aws-apigateway” and then update “lib/ hitcounter-api-stack.ts” to define an API endpoint and associate with the lambda function. Find the difference between last deployed app and current changes using “cdk diff” and deploy using “cdk deploy”. Test the app by navigating to the URL available as output when app is deployed. Test it by navigating to multiple paths.
+
+![API gateway endpoint](./snaps/endpoint.PNG)
+
+![API gateway endpoint path 01](./snaps/endpointpath01.PNG)
+
+![API gateway endpoint path 02](./snaps/endpointpath02.PNG)
+
 ## Useful commands
 
 - `npm run build` compile typescript to js
