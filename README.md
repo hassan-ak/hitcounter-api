@@ -30,6 +30,10 @@ Adding an API Gateway in front of the hello lambda function will expose a public
 
 ![API gateway endpoint path 02](./snaps/endpointpath02.PNG)
 
+### Step 04 (Create HitCounter API)
+
+We will create a HitCounter construct which can be attached to any lambda function which is used as API gateway backend. It will count how many requests are issued to each URL path and store this in DynamoDB table. Create HitCounter construct by creating a file “lib/hitcounter.ts”. Install DynamoDB construct using “npm install @aws-cdk/aws-dynamodb”. Add hitcounter lambda function and a dynamoDB table in the hitcounter construct. Create “lambda/hitcounter.ts” to define HitCounter handler. Install aws-sdk using “npm install aws-sdk”. In this handler update the dynamo table based on the path accessed and also call the downstream function and capture its response and return as output. In the HitCounter construct grant lambda function the permission to read and write to the lambda table and grant lambda role invoke permission to the downstream function. Deploy the App using “cdk deploy”.
+
 ## Useful commands
 
 - `npm run build` compile typescript to js
