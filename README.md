@@ -52,6 +52,10 @@ Update “lib/ hitcounter-api-stack.ts” to configure the table viewer to sort 
 
 ![Table Viewer Sorted](./snaps/tablesorted.PNG)
 
+### Step 08 (Destroy App)
+
+Destroy App using “cdk destroy” as we don’t want our AWS resources to be used unnecessarily.
+
 ## Useful commands
 
 - `npm run build` compile typescript to js
