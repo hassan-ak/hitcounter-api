@@ -2,6 +2,19 @@
 
 BootCamp 2021 Project 03
 
+## Reading Material
+
+- [CDK Workshop](https://cdkworkshop.com/20-typescript.html)
+
+## Useful commands
+
+- `npm run build` compile typescript to js
+- `npm run watch` watch for changes and compile
+- `npm run test` perform the jest unit tests
+- `cdk deploy` deploy this stack to your default AWS account/region
+- `cdk diff` compare deployed stack with current state
+- `cdk synth` emits the synthesized CloudFormation template
+
 ---
 
 ## Steps to compile code
@@ -55,12 +68,3 @@ Update “lib/ hitcounter-api-stack.ts” to configure the table viewer to sort 
 ### Step 08 (Destroy App)
 
 Destroy App using “cdk destroy” as we don’t want our AWS resources to be used unnecessarily.
-
-## Useful commands
-
-- `npm run build` compile typescript to js
-- `npm run watch` watch for changes and compile
-- `npm run test` perform the jest unit tests
-- `cdk deploy` deploy this stack to your default AWS account/region
-- `cdk diff` compare deployed stack with current state
-- `cdk synth` emits the synthesized CloudFormation template
