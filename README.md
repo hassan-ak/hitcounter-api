@@ -40,6 +40,12 @@ Update “lib/ hitcounter-api-stack.ts” to add hitcounter API to the main stac
 
 ![Dynamo Table](./snaps/dynamoTable.PNG)
 
+### Step 06 (Add table viewer library)
+
+One way to access the table is by accessing the DynamoDB console, other is to add some construct library to view in browser, so use cdk-dynamo-table-viewer to view the table. Install table viewer library using “npm install cdk-dynamo-table-viewer” and update “lib/ hitcounter-api-stack.ts” to create a new table viewer. Also update “lib/hitcounter.ts” so table is exposed as public property. This time deploying the app not only gives a URL for hello lambda endpoint but also for HitCounter table.
+
+![Table Viewer Endpoint](./snaps/table.PNG)
+
 ## Useful commands
 
 - `npm run build` compile typescript to js

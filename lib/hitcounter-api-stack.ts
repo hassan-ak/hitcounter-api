@@ -5,6 +5,7 @@ import * as cdk from "@aws-cdk/core";
 import * as lambda from "@aws-cdk/aws-lambda";
 import * as apigw from "@aws-cdk/aws-apigateway";
 import { HitCounter } from "./hitcounter";
+import { TableViewer } from "cdk-dynamo-table-viewer";
 
 // Main stack for the app
 export class HitcounterApiStack extends cdk.Stack {
@@ -29,6 +30,12 @@ export class HitcounterApiStack extends cdk.Stack {
     // defines an API Gateway REST API resource backed by our "HitCounter" function.
     new apigw.LambdaRestApi(this, "Endpoint", {
       handler: helloWithCounter.handler,
+    });
+
+    // TableViewr to access table through some URL
+    new TableViewer(this, "ViewHitsTable", {
+      title: "BootCamp2021 Project03 HitCounter",
+      table: helloWithCounter.table,
     });
   }
 }
