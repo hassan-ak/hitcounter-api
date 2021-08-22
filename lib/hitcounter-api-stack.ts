@@ -4,6 +4,7 @@
 import * as cdk from "@aws-cdk/core";
 import * as lambda from "@aws-cdk/aws-lambda";
 import * as apigw from "@aws-cdk/aws-apigateway";
+import { HitCounter } from "./hitcounter";
 
 // Main stack for the app
 export class HitcounterApiStack extends cdk.Stack {
@@ -20,9 +21,14 @@ export class HitcounterApiStack extends cdk.Stack {
       handler: "hello.handler", // file is "hello", function is "handler"
     });
 
-    // defines an API Gateway REST API resource backed by our "hello" function.
+    // attach hello lambda function to the HitCounter API
+    const helloWithCounter = new HitCounter(this, "HelloHitCounter", {
+      downstream: hello,
+    });
+
+    // defines an API Gateway REST API resource backed by our "HitCounter" function.
     new apigw.LambdaRestApi(this, "Endpoint", {
-      handler: hello,
+      handler: helloWithCounter.handler,
     });
   }
 }
