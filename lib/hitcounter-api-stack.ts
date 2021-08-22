@@ -36,6 +36,7 @@ export class HitcounterApiStack extends cdk.Stack {
     new TableViewer(this, "ViewHitsTable", {
       title: "BootCamp2021 Project03 HitCounter",
       table: helloWithCounter.table,
+      sortBy: "-hits",
     });
   }
 }
