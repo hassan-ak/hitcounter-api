@@ -1,4 +1,4 @@
-# Project 03 BootCamp 2021: HitCounter Api
+# BootCamp2021 Project03: HitCounter Api
 
 By doing this project we are able to learn following:-
 
