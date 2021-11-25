@@ -58,7 +58,7 @@ Update “lib/ hitcounter-api-stack.ts” to configure the table viewer to sort 
 
 ### 8. Destroy App
 
-Destroy App using “cdk destroy” as we don’t want our AWS resources to be used unnecessarily.
+Destroy App using `cdk destroy` as we don’t want our AWS resources to be used unnecessarily.
 
 ## Reading Material
 
